@@ -8,3 +8,5 @@ ContextAPI.egg-info
 !data/pdf-ai-generated/*
 .coverage
 src/context_search/ragger/data_amanger/utils/purge_whitespaces.py
+build/
+.venv_capi/
