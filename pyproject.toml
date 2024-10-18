@@ -1,0 +1,21 @@
+[project]
+name = "ContextAPI"
+version = "0.1.0"
+description = "User friendly system for semantic search."
+authors = [
+    { name = "ArturOle", email = "r2.acumen@gmail.com" }
+]
+license = { text = ["GPL-3.0"], file = "LICENSE" }
+readme = "README.md"
+keywords = ["semantic search", "ocr", "rag", "document-embedding", "contextual-search", "retrieval-augmented-generation", "pdf"]
+dynamic = ["dependencies"]
+
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements\base.txt"]}
+
+[tool.setuptools.packages.find]
+where = ["context_api"]
