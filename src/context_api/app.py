@@ -28,6 +28,8 @@ class ContextAPI:
             contents = file.file.read()
             with open(file.filename, 'wb') as f:
                 f.write(contents)
+
+            self.context_search.submit([file.filename])
         except Exception:
             return {"message": "There was an error uploading the file"}
         finally:
