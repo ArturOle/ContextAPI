@@ -1,12 +1,12 @@
 import os
 
-
 from fastapi import FastAPI, File, UploadFile
 from fastapi.responses import RedirectResponse
 from slowapi import Limiter, _rate_limit_exceeded_handler
 from slowapi.util import get_remote_address
 from slowapi.middleware import SlowAPIMiddleware
 from slowapi.errors import RateLimitExceeded
+
 from context_search import ContextSearch
 
 
@@ -15,11 +15,11 @@ class ContextAPI:
         self.context_search = ContextSearch()
         self.api = FastAPI()
         self.cwd = os.getcwd()
-        self.limiter = Limiter(
+
+        self.api.state.limiter = Limiter(
             key_func=get_remote_address,
             default_limits=["5/minute"]
         )
-        self.api.state.limiter = self.limiter
         self.api.add_exception_handler(
             RateLimitExceeded,
             _rate_limit_exceeded_handler
