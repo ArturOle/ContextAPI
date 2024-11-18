@@ -1,0 +1,22 @@
+#!/bin/bash
+
+NAME=context-search
+DIR=/home/ubuntu/proj/ContextAPI
+USER=ubuntu
+WORKERS=1
+WORKER_CLASS=uvicorn.workers.UvicornWorker
+VENV=$DIR/.venv/bin/activate
+BIND=unix:$DIR/run/gunicorn.sock
+LOG_LEVEL=debug
+
+cd $DIR
+
+exec gunicorn src.context_api.api:app \
+  --name $NAME \
+  --workers $WORKERS \
+  --worker-class $WORKER_CLASS \
+  --user=$USER \
+  --bind=$BIND \
+  --log-level=$LOG_LEVEL \
+  --log-file=logs.log \
+  --daemon

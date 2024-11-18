@@ -10,3 +10,6 @@ ContextAPI.egg-info
 src/context_search/ragger/data_amanger/utils/purge_whitespaces.py
 build/
 .venv_capi/
+logs/
+.venv
+run/*

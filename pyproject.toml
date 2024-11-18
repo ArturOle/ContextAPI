@@ -11,8 +11,8 @@ keywords = ["semantic search", "ocr", "rag", "document-embedding", "contextual-s
 packages = [{include = "context_api", from="src"}]
 
 [tool.poetry.dependencies]
-python = "^3.10"
-contextsearch = { git = "https://github.com/ArturOle/ContextSearch.git", branch = "master" }
+python = ">=3.10,<3.13"
+contextsearch = { git = "https://github.com/ArturOle/ContextSearch.git", branch = "deploy/demo" }
 fastapi = "^0.112.0"
 uvicorn = "^0.31.0"
 python-multipart = "^0.0.12"

@@ -1,5 +1,5 @@
 import os
 
-app_path = "ContextAPI.src.context_api.api:app"
+app_path = "src.context_api.api:app"
 
-os.system(f'uvicorn {app_path} --reload --host=0.0.0.0 --port=8000')
+os.system(f'gunicorn {app_path} -k uvicorn.workers.UvicornWorker --name context-search --bind=unix:/home/ubuntu/proj/ContextAPI/run/gunicorn.sock --log-level debug --access-logfile logs.log --keep-alive 0 --daemon')
